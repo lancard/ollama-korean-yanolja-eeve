@@ -18,10 +18,11 @@ jobs:
       - name: Check ollama
         run: ollama -v
 
+      - name: Check Keys
+        run: ls -al /usr/share/ollama/.ollama/
+
       - name: Generate key for ollama
         run: |
-          sudo rm /usr/share/ollama/.ollama/id_ed25519
-          sudo rm /usr/share/ollama/.ollama/id_ed25519.pub
           sudo echo "${{ secrets.ID_ED25519 }}" > /usr/share/ollama/.ollama/id_ed25519
           sudo echo "${{ secrets.ID_ED25519_PUB }}" > /usr/share/ollama/.ollama/id_ed25519.pub
           sudo chmod 600 /usr/share/ollama/.ollama/id_ed25519
