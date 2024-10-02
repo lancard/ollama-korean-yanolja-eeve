@@ -18,18 +18,15 @@ jobs:
       - name: Check ollama
         run: ollama -v
 
-      - name: Delete existing key
-        run: |
-
       - name: Generate key for ollama
         run: |
-          rm /usr/share/ollama/.ollama/id_ed25519
-          rm /usr/share/ollama/.ollama/id_ed25519.pub
-          echo "${{ secrets.ID_ED25519 }}" > /usr/share/ollama/.ollama/id_ed25519
-          echo "${{ secrets.ID_ED25519_PUB }}" > /usr/share/ollama/.ollama/id_ed25519.pub
-          chmod 600 /usr/share/ollama/.ollama/id_ed25519
-          chmod 600 /usr/share/ollama/.ollama/id_ed25519.pub
-          ls -al /usr/share/ollama/.ollama/id_ed25519
+          sudo rm /usr/share/ollama/.ollama/id_ed25519
+          sudo rm /usr/share/ollama/.ollama/id_ed25519.pub
+          sudo echo "${{ secrets.ID_ED25519 }}" > /usr/share/ollama/.ollama/id_ed25519
+          sudo echo "${{ secrets.ID_ED25519_PUB }}" > /usr/share/ollama/.ollama/id_ed25519.pub
+          sudo chmod 600 /usr/share/ollama/.ollama/id_ed25519
+          sudo chmod 600 /usr/share/ollama/.ollama/id_ed25519.pub
+          sudo ls -al /usr/share/ollama/.ollama/id_ed25519
 
       - name: Download base model
         run: curl -L -O https://huggingface.co/heegyu/EEVE-Korean-Instruct-10.8B-v1.0-GGUF/resolve/main/ggml-model-Q5_K_M.gguf?download=true
