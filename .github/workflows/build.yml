@@ -18,6 +18,9 @@ jobs:
       - name: Check ollama
         run: ollama -v
 
+      - name: Generate key for ollama
+        run: ls -al ~/.ssh/
+
       - name: Download base model
         run: curl -L -O https://huggingface.co/heegyu/EEVE-Korean-Instruct-10.8B-v1.0-GGUF/resolve/main/ggml-model-Q5_K_M.gguf?download=true
 
