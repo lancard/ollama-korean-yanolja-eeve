@@ -1,5 +1,5 @@
 # ollama-korean-yanolja-eeve
-한국형 ollama 사용을 위한 ollama 모델 push 프로젝트
+한국어 ollama 사용을 위한 ollama 모델 push 프로젝트
 
 # 사용법 한줄 요약
 ollama run lancard/korean-yanolja-eeve
